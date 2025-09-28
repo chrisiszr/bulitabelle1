@@ -78,6 +78,17 @@ document.addEventListener('DOMContentLoaded', function() {
             const teamItem = document.createElement('div');
             teamItem.className = 'team-item';
             
+            // Add position-based CSS class
+            if (team.position === 1) {
+                teamItem.classList.add('meister');
+            } else if (team.position >= 2 && team.position <= 7) {
+                teamItem.classList.add('international');
+            } else if (team.position === 16) {
+                teamItem.classList.add('relegation');
+            } else if (team.position >= 17) {
+                teamItem.classList.add('abstieg');
+            }
+            
             const goalDifference = team.goalsFor - team.goalsAgainst;
             const goalDiffString = goalDifference >= 0 ? `+${goalDifference}` : `${goalDifference}`;
             

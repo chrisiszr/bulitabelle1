@@ -100,17 +100,25 @@ header h1 {
     flex-shrink: 0;
 }
 
-/* Spezielle Positionen */
-.team-item:nth-child(1) .team-position {
-    color: #FFD700;
+/* Position-based borders */
+.team-item {
+    border-left: 4px solid #E5E7EB; /* Hellgrau - Standard Plätze */
 }
 
-.team-item:nth-child(2) .team-position {
-    color: #C0C0C0;
+.meister {
+    border-left: 4px solid #FFD700; /* Gold - Meister */
 }
 
-.team-item:nth-child(3) .team-position {
-    color: #CD7F32;
+.international {
+    border-left: 4px solid #1E40AF; /* Dunkelblau - International */
+}
+
+.relegation {
+    border-left: 4px solid #EA580C; /* Orange - Relegation */
+}
+
+.abstieg {
+    border-left: 4px solid #DC2626; /* Rot - Abstieg */
 }
 
 /* Fußball-Zeilen */
