@@ -1,0 +1,7 @@
+[build]
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/api/bundesliga"
+  to = "/.netlify/functions/bundesliga"
+  status = 200
