@@ -102,23 +102,24 @@ header h1 {
 
 /* Position-based borders */
 .team-item {
-    border-left: 4px solid #E5E7EB; /* Hellgrau - Standard Plätze */
+    border-left: 2px solid #E5E7EB; /* Hellgrau - Standard Plätze */
+    padding-left: 8px; /* Abstand zwischen Border und Nummer */
 }
 
 .meister {
-    border-left: 4px solid #FFD700; /* Gold - Meister */
+    border-left: 2px solid #FFD700; /* Gold - Meister */
 }
 
 .international {
-    border-left: 4px solid #1E40AF; /* Dunkelblau - International */
+    border-left: 2px solid #1E40AF; /* Dunkelblau - International */
 }
 
 .relegation {
-    border-left: 4px solid #EA580C; /* Orange - Relegation */
+    border-left: 2px solid #EA580C; /* Orange - Relegation */
 }
 
 .abstieg {
-    border-left: 4px solid #DC2626; /* Rot - Abstieg */
+    border-left: 2px solid #DC2626; /* Rot - Abstieg */
 }
 
 /* Fußball-Zeilen */
