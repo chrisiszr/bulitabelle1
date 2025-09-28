@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bundesliga Tabelle - Oldschool</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>BUNDESLIGA TABELLE</h1>
+            <button id="showDifferences" class="toggle-button">PUNKTABSTÄNDE ANZEIGEN</button>
+        </header>
+        
+        <div class="list-container">
+            <div id="teamList">
+                <!-- Hier werden die Teams eingefügt -->
+                <div class="loading">LADE DATEN...</div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>=== DATEN VON BUNDESLIGA API ===</p>
+            <p>LETZTE AKTUALISIERUNG: <span id="lastUpdate">--:--</span></p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

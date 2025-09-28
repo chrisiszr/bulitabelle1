@@ -1,0 +1,162 @@
+/* Ultra-Minimalistisches Design */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier Prime', 'Courier New', monospace;
+    background-color: white;
+    color: black;
+    font-size: 14px;
+    line-height: 1.4;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+/* Button */
+.toggle-button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-family: 'Courier Prime', 'Courier New', monospace;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.toggle-button:hover {
+    background-color: #333;
+}
+
+.toggle-button.active {
+    background-color: #666;
+}
+
+/* Liste */
+.list-container {
+    margin: 20px 0;
+}
+
+.team-item {
+    margin-bottom: 8px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+}
+
+.team-position {
+    font-weight: 700;
+    width: 30px;
+    flex-shrink: 0;
+}
+
+.team-name {
+    flex: 1;
+    margin-right: 20px;
+    min-width: 0;
+}
+
+.team-points {
+    font-weight: 700;
+    width: 40px;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.team-goals {
+    font-family: 'Courier Prime', 'Courier New', monospace;
+    color: #666;
+    width: 50px;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+/* Spezielle Positionen */
+.team-item:nth-child(1) .team-position {
+    color: #FFD700;
+}
+
+.team-item:nth-child(2) .team-position {
+    color: #C0C0C0;
+}
+
+.team-item:nth-child(3) .team-position {
+    color: #CD7F32;
+}
+
+/* Fußball-Zeilen */
+.football-item {
+    margin: 4px 0;
+    font-size: 12px;
+    color: #666;
+    text-align: left;
+    padding-left: 0;
+}
+
+/* Loading */
+.loading {
+    text-align: center;
+    font-style: italic;
+    color: #666;
+    margin: 20px 0;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 10px;
+    color: #666;
+}
+
+footer p {
+    margin: 3px 0;
+}
+
+#lastUpdate {
+    font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .team-item {
+        font-size: 12px;
+    }
+    
+    .team-name {
+        margin-right: 10px;
+    }
+    
+    .team-points {
+        width: 35px;
+    }
+    
+    .team-goals {
+        width: 45px;
+    }
+}
