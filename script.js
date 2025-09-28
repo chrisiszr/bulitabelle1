@@ -10,24 +10,62 @@ document.addEventListener('DOMContentLoaded', function() {
     let differencesVisible = false;
     let currentTeams = [];
     
+    // Client-side Cache (3 Minuten)
+    let clientCache = {
+        data: null,
+        timestamp: null,
+        ttl: 3 * 60 * 1000 // 3 Minuten
+    };
+    
     // Load Bundesliga data from Netlify function
-    async function loadBundesligaData() {
+    async function loadBundesligaData(forceRefresh = false) {
+        // Prüfe Client-Cache
+        const now = Date.now();
+        if (!forceRefresh && clientCache.data && clientCache.timestamp && 
+            (now - clientCache.timestamp) < clientCache.ttl) {
+            console.log('Using client cache');
+            populateList(clientCache.data);
+            updateLastUpdate();
+            return;
+        }
+        
         try {
             teamList.innerHTML = '<div class="loading">LADE DATEN...</div>';
             
             const response = await fetch('/api/bundesliga');
             
             if (!response.ok) {
+                if (response.status === 429) {
+                    // Rate limit erreicht - zeige Cache oder Demo
+                    if (clientCache.data) {
+                        populateList(clientCache.data);
+                        updateLastUpdate();
+                        return;
+                    }
+                }
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             
             const data = await response.json();
+            
+            // Aktualisiere Client-Cache
+            clientCache.data = data.standings[0].table;
+            clientCache.timestamp = now;
+            
             populateList(data.standings[0].table);
             updateLastUpdate();
             
         } catch (error) {
             console.error('Error loading data:', error);
-            loadDemoData();
+            
+            // Versuche Client-Cache als Fallback
+            if (clientCache.data) {
+                console.log('Using stale client cache');
+                populateList(clientCache.data);
+                updateLastUpdate();
+            } else {
+                loadDemoData();
+            }
         }
     }
     
@@ -138,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Setup refresh button
     if (refreshButton) {
         refreshButton.onclick = function() {
-            loadBundesligaData();
+            loadBundesligaData(true); // Force refresh
         };
     }
     
